@@ -37,5 +37,12 @@ module.exports = {
     'react/destructuring-assignment': 0,
     '@typescript-eslint/no-explicit-any': 'warn',
     'import/order': 0,
+    'import/prefer-default-export': 'warn',
+    'react/jsx-no-constructed-context-values': 0,
+    'react-hooks/exhaustive-deps': 0,
+    'react/no-array-index-key': 0,
+    'react/require-default-props': 0,
+    'jsx-a11y/click-events-have-key-events': 0,
+    'jsx-a11y/no-static-element-interactions': 0,
   },
 };

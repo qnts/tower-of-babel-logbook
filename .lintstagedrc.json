@@ -1,0 +1,10 @@
+{
+  "*.{css,scss}": [
+    "prettier --write"
+  ],
+  "*.{js,jsx,ts,tsx}": [
+    "prettier --write",
+    "eslint --ignore-path .gitignore --fix",
+    "vitest related --run --environment=jsdom"
+  ]
+}

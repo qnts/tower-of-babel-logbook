@@ -20,9 +20,6 @@
     ],
     "baseUrl": "./src",
     "paths": {
-      "@/*": [
-        "./*"
-      ],
       "@common/*": [
         "./common/*"
       ],
@@ -34,6 +31,12 @@
       ],
       "@providers/*": [
         "./common/providers/*"
+      ],
+      "@data/*": [
+        "./data/*"
+      ],
+      "@/*": [
+        "./*"
       ],
     },
   },

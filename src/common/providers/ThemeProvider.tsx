@@ -1,21 +1,28 @@
-import { ConfigProvider, theme } from 'antd';
-import { useAppContext } from './AppProvider';
+import {
+  ThemeProvider as MuiThemeProvider,
+  createTheme,
+} from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { orange } from '@mui/material/colors';
 
-const { defaultAlgorithm, darkAlgorithm } = theme;
+const theme = createTheme({
+  colorSchemes: {
+    dark: true,
+  },
+  palette: {
+    primary: orange,
+  },
+});
 
 export default function ThemeProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { darkMode } = useAppContext();
   return (
-    <ConfigProvider
-      theme={{
-        algorithm: darkMode ? darkAlgorithm : defaultAlgorithm,
-      }}
-    >
+    <MuiThemeProvider theme={theme}>
+      <CssBaseline />
       {children}
-    </ConfigProvider>
+    </MuiThemeProvider>
   );
 }

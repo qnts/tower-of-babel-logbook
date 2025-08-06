@@ -1,33 +1,18 @@
-import { tss } from 'tss-react';
-import { Flex } from 'antd';
+import { Container } from '@mui/material';
 import AppBar from './AppBar';
 import { Outlet } from 'react-router-dom';
-
-const useStyles = tss.create({
-  root: {
-    height: '100vh',
-    // make this component centered in the viewport
-    position: 'relative',
-    width: '100%',
-    maxWidth: 1024,
-    margin: '0 auto',
-  },
-  container: {
-    flex: 1,
-    overflow: 'auto',
-    minHeight: 1,
-  },
-});
+import { PAGE_MAX_WIDTH } from '../constants';
+import AppDrawer from './AppDrawer';
 
 function Layout() {
-  const { classes } = useStyles();
   return (
-    <Flex vertical className={classes.root}>
+    <>
       <AppBar />
-      <div className={classes.container} id="app-container">
+      <AppDrawer />
+      <Container maxWidth={PAGE_MAX_WIDTH} id="app-container">
         <Outlet />
-      </div>
-    </Flex>
+      </Container>
+    </>
   );
 }
 

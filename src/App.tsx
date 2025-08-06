@@ -3,15 +3,18 @@ import Home from '@pages/Home';
 import NotFound from '@pages/NotFound';
 import AppProvider from '@providers/AppProvider';
 import Layout from '@common/Layout/Layout';
+import ThemeProvider from '@common/providers/ThemeProvider';
 
 const router = createBrowserRouter([
   {
     path: '/',
     // main entry point of the app
     element: (
-      <AppProvider>
-        <Layout />
-      </AppProvider>
+      <ThemeProvider>
+        <AppProvider>
+          <Layout />
+        </AppProvider>
+      </ThemeProvider>
     ),
     children: [
       {

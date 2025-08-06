@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Basic Attack",
+    "category": "base"
+  },
+  {
+    "name": "Special Attack",
+    "category": "base"
+  },
+  {
+    "name": "Corpse Explosion",
+    "category": "dark"
+  }
+]

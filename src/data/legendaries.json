@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Inevitable End",
+    "description": "[Corpse Explosion] Also explodes when the curse expires",
+    "skillTags": ["corpse_explosion"]
+  },
+  {
+    "name": "Overflow Strike",
+    "description": "15% chance to cast a Special Attack for no Mana when using a Basic Attack",
+    "skillTags": ["special_attack", "basic_attack"]
+  }
+]

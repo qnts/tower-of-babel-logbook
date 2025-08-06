@@ -1,28 +1,34 @@
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useMemo,
-  useState,
-} from 'react';
+import { useColorScheme } from '@mui/material/styles';
+import { createContext, useContext, useMemo, useState } from 'react';
+import PlannerProvider from './PlannerProvider';
+
+export type Mode = 'light' | 'dark' | 'system';
 
 export interface AppContextProps {
-  darkMode: boolean;
-  toggleDarkMode: () => void;
+  mode?: Mode;
+  setMode: (mode: Mode | null) => void;
+  drawerOpen: boolean;
+  setDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 export const AppContext = createContext<AppContextProps>({
-  darkMode: false,
-  toggleDarkMode: () => null,
+  mode: 'system',
+  setMode: () => null,
+  drawerOpen: false,
+  setDrawerOpen: () => null,
 });
 
 const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(true);
-  const toggleDarkMode = useCallback(() => setDarkMode((prev) => !prev), []);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const { mode, setMode } = useColorScheme();
   const value = useMemo(
-    () => ({ darkMode, toggleDarkMode }),
-    [darkMode, toggleDarkMode]
+    () => ({ mode, setMode, drawerOpen, setDrawerOpen }),
+    [mode, setMode, drawerOpen, setDrawerOpen]
   );
-  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+  return (
+    <AppContext.Provider value={value}>
+      <PlannerProvider>{children}</PlannerProvider>
+    </AppContext.Provider>
+  );
 };
 
 export const useAppContext = () => useContext(AppContext);
